@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+			/*
+				限定符
+					限定字符出现的次数
+				n,m 都是数字
+					{n} 出现n次
+					{n,} 至少出现n次，最多不限
+					{n,m} 至少出现n次，最多是m次
+
+				+ 最少出现1，最多不限  {1,}
+				* 最少出现0，最多不限 {0,}
+				? 最少出现0，最多1次  {0,1}
+			*/
+
+			let str = 'm123vm333vm44vmmvmvm1v';
+
+			// 规则：m开始，v结束，中间至少出现一个数字
+
+			//let re = /m\dv/g;
+
+			/*let re = /m\d+v/g;
+
+			console.log(str.match(re));*/
+
+			// 规则：m开始，v结束，中间可以没有也可以出现多个数字
+
+			let re = /m\d*v/g;
+
+			console.log(str.match(re));
+
+			// 规则：m开始，v结束，中间最多出现1个，也可以没有
+
+			let re2 = /m\d?v/g;
+
+			console.log(str.match(re2));
+
+		</script>
+	</head>
+
+	<body>
+		
+	</body>
+</html>

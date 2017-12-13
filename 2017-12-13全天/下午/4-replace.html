@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+			/*
+				str.replace(str||正则，替换的字符串||function)
+				作用
+					用来替换字符串中的某些符合规则的字符
+				语法
+					String string.replace(string|regexObj,string|function)
+				参数
+					第一个参数：字符串或正则表达式
+					第二个参数：字符串或函数
+				返回值
+					替换后新字符串
+
+				注意：替换一次
+
+					如果第二参数为回调函数，那么要替换的文本是回调函数的返回值
+
+					回调函数的参数，是每一次匹配到的字符串
+
+			*/
+
+			let str = 'miao1v3ke4ta6ng7l7eo'; // 'miaovketangwy'
+
+			// 替换字符串中所有的数字为*
+			// 如果这个数字为6，不替换为*
+
+			let re = /\d/g;
+
+			//let newStr = str.replace(re,"*");
+
+			let newStr = str.replace(re,function (a){
+				console.log(a);
+				return a === "6" ? a : "*"	
+			});
+
+			console.log(newStr);
+		</script>
+	</head>
+
+	<body>
+		<input type="text" id="testQQ" />
+		<script>
+
+		</script>
+	</body>
+</html>

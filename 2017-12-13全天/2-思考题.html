@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+			let str = 'm1567i2a3o5v6k77889e000ta456ng44444';
+
+
+			// 需求：找到字符串中所有的连续的数字放在数组中
+			// [1,2,3,5,6,778899,000,456]
+
+			// 思路：找到是数字的哪一个字符，再继续看一下个字符是不是数字，如果不是，则push这一个数字；如果下一位字符是数字，把这两个字符拼起来继续找下一位，直到找到不是数字 为止
+			let current = '';
+			let arr = []
+			for( var i = 0; i < str.length; i++ ){
+				if(!isNaN(str[i])){  // 是数字
+					current += str[i]
+				}else{
+					// 遇到了不是数字的
+					if(current){
+						arr.push(current)
+						current = ''
+					}
+				}
+			}
+			// 如果有值，就push,防止最后几位是数字，那么在for循环的时候，不走到else中了
+			if(current){
+				arr.push(current)
+			}
+
+			console.log(arr);
+
+		</script>
+	</head>
+
+	<body>
+		
+	</body>
+</html>

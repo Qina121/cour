@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+			/*
+				str.replace(str||正则，替换的字符串||function)
+				作用
+					用来替换字符串中的某些符合规则的字符
+				语法
+					String string.replace(string|regexObj,string|function)
+				参数
+					第一个参数：字符串或正则表达式
+					第二个参数：字符串或函数
+				返回值
+					替换后新字符串
+
+				注意：替换一次
+
+					如果第二参数为回调函数，那么要替换的文本是回调函数的返回值
+
+					回调函数的参数，是每一次匹配到的字符串
+
+
+				| 或
+
+			*/
+
+			// 过滤敏感词
+
+			let str = '妙味课堂的领导说了：妙味课堂坚持走妙味课堂自己的路线，绝不和邪教在一起，妙味课堂非常好！！leo大法好！'
+
+			// 妙味 邪教 领导 妙味大法  ** XX 
+
+			let re = /leo大法|妙味|邪教|领导/g;
+
+			let newStr = str.replace(re,function ($0,$1,$2){
+				/*
+					$0 是正则匹配出来的字符串
+					$1 是匹配出来的字符串的下标
+					$2 原字符串str
+				*/
+				console.log($0,$1,$2);
+				return '*'.repeat($0.length)
+			});
+
+			console.log(newStr);
+
+		</script>
+	</head>
+
+	<body>
+		<input type="text" id="testQQ" />
+		<script>
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+			/*
+				str.search(str2 || 正则表达式)
+
+					作用
+						检索指定参数字符串或参数正则表达式匹配到的原字符串首次出现的位置
+					语法
+						number string.search(string|regexObj)
+					参数
+						string|regexObj
+						字符串或正则表达式
+
+					返回值
+						匹配到的字符串首次出现的位置
+						没有检索到返回-1
+
+
+				str.indexOf(str2)
+			*/
+
+			let str = 'miao9vke3t1an5g';
+
+			let re = /\d/
+
+			// 需求：数字首次的出现的位置
+			console.log(str.indexOf('1'));
+			console.log(str.search('1'));
+			console.log('----------用正则查找----------');
+			console.log(str.indexOf(re));
+			console.log(str.search(re));
+
+		</script>
+	</head>
+
+	<body>
+		
+	</body>
+</html>

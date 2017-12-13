@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+			/*
+				str.search(str2 || 正则表达式)
+
+					作用
+						检索指定参数字符串或参数正则表达式匹配到的原字符串首次出现的位置
+					语法
+						number string.search(string|regexObj)
+					参数
+						string|regexObj
+						字符串或正则表达式
+
+					返回值
+						匹配到的字符串首次出现的位置
+						没有检索到返回-1
+
+				和indexOf唯一区别就是，search可以接收正则，indeOf不能接收
+
+
+				str.indexOf(str2)
+				
+				修饰符：位置是在//后面
+					i  ignore 忽略大小写
+
+			*/
+
+			let str = 'miao9vke3t1an5g';
+
+			let re = /M/i
+
+			console.log(str.search(re));
+
+		</script>
+	</head>
+
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+			/*
+				限定符（量词）
+					+ 至少出现一次，最多不限 {1,}
+					
+					自定义次数：n，m
+						{n}  出现n次
+						{n,} 至少出现n次，最多不限
+						{n,m} 至少出现n次，最多出现m次
+			*/
+
+			
+
+
+		</script>
+	</head>
+
+	<body>
+		<input type="text" id="testQQ" />
+		<script>
+			/*
+				QQ的规则：
+					1. 全都是数字
+					2. 最少5最多11
+					3. 开头不能为0 ????
+
+				^ 字符串的开头
+				$ 字符串的结尾
+			*/
+
+			let qq = '123456779123456779123456779123456779'
+
+			let re = /^\d{5,11}$/;
+
+			testQQ.oninput  = function (){
+				if(re.test(this.value)){
+					console.log('是QQ');
+				}else{
+					console.log('请填写正确的QQ');
+				}
+			}
+
+		</script>
+	</body>
+</html>

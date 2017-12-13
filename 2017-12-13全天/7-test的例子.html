@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+			
+			/*
+				正则表达式，又称规则表达式
+				查找匹配某些符合规则的字符串，正则表达式就是写这种规则的工具
+
+				只能作用在文本（字符串）上
+				
+				创建正则表达式
+					1. （字面）直接量定义（推荐）
+						/规则表达式/修饰符
+					2. 创建对象的方式
+						new RegExp(规则表达式字符串[，修饰符)
+
+					如果规则存在变量中的，必须使用创建对象的方式，否则不会解析成变量
+
+
+				规则表达式
+					可以写普通的字符
+						字母 a -z
+						数字 0-9
+
+				re.test(str)
+					正则的方法
+					作用
+						用来检测指定的字符串是否符合正则的规则
+					语法
+						boolean regexObj.test(string)
+					参数
+						字符串
+
+					返回值
+						符合规则返回true，不符合返回false
+
+
+			*/
+
+			/*
+				规则表达式
+					可以写普通的字符
+						字母 a -z
+						数字 0-9
+					可以写传义的字符
+						\d 代表一个数字 
+			*/
+
+
+		</script>
+	</head>
+
+	<body>
+		<input type="text" id="message" />
+		<span id="tip"></span>
+		<script>
+			let message = document.getElementById('message');
+			let tip = document.getElementById('tip');
+			// 需求：测试有没有输入数字
+			let re = /\d/
+			message.oninput = function (){
+				if(re.test(this.value)){
+					tip.innerHTML = '已经输入了数字'
+					tip.style.background = 'green';
+				}else{
+					tip.innerHTML = '请输入数字'
+					tip.style.background = 'red';
+				}
+			}
+
+		</script>
+	</body>
+</html>
