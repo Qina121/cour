@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+
+			var content = {
+			    zj:[
+			        {
+			            title:'QQ',
+			            name:'qq',
+			            editTime:'2017-12-05',
+			            fileSize:0,
+			            child:[
+			                {
+			                    title:'QQ2222',
+			                    name:'qq2',
+			                    editTime:'2017-12-05',
+			                    fileSize:0,
+			                    child:[
+			                        {
+			                            title:'QQ3333',
+			                            name:'qq3',
+			                            editTime:'2017-12-05',
+			                            fileSize:0
+			                        },
+			                        {
+			                            title:'网络公司33',
+			                            name:'wlgs3',
+			                            editTime:'2017-12-05',
+			                            fileSize:0
+			                        }
+			                    ]
+			                },
+			                {
+			                    title:'网络公司22',
+			                    name:'wlgs2',
+			                    editTime:'2017-12-05',
+			                    fileSize:0
+			                },
+			                {
+			                    title:'网站制作任务222',
+			                    name:'wzzzrw2',
+			                    editTime:'2017-12-05',
+			                    fileSize:0
+			                }
+			            ]
+			        },
+			        {
+			            title:'网络公司',
+			            name:'wlgs',
+			            editTime:'2017-12-05',
+			            fileSize:0
+			        },
+			        {
+			            title:'网站制作任务',
+			            name:'wzzzrw',
+			            editTime:'2017-12-05',
+			            fileSize:0
+			        },
+			        {
+			            title:'我的腾讯文件',
+			            name:'wdtxwj',
+			            editTime:'2017-12-05',
+			            fileSize:0
+			        }
+			    ]
+			};
+
+			var data = content.zj;
+
+		</script>
+	</head>
+
+	<body>
+		<div id="box">
+			
+			<!-- <ul>
+				<li>
+					<span>hello</span>
+					<ul>
+						<li>
+							<span>123</span>
+						</li>
+					</ul>
+				</li>
+			</ul> -->
+		</div>
+		<script>
+			// 生成第一层
+
+			let html = '';
+
+			html += `<ul>`
+			data.forEach(function (item){
+				html += `<li>
+							<span>${item.title}</span>`
+				// 有下一级
+				if(item.child){
+					html += `<ul>`
+						item.child.forEach(function (item){
+							html += `<li>
+							<span>${item.title}</span></li>`	
+						})
+					html += `</ul>`;
+				}
+
+				html += `</li>`	
+			})
+			html += `</ul>`;
+
+			box.innerHTML = html;
+
+		</script>
+	</body>
+</html>

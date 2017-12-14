@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+			let str = '妙味课堂123abc';
+
+			/*
+				匹配中文有一个范围：
+					\u4e00-\u9fa5 中文的Unicode编码
+
+					 一       龥
+			*/
+
+			let  re = /[\u4e00-\u9fa5妙味]/g;
+
+			console.log(str.match(re));
+
+			console.log(encodeURI('秒'));  //编码为URI格式的
+			console.log( decodeURI('\u4e00') );
+			console.log( decodeURI('\u9fa5') );
+
+		</script>
+	</head>
+
+	<body>
+		
+	</body>
+</html>

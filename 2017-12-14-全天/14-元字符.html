@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+			/*
+				元字符：
+					\d 代表一个数字
+					i
+					g
+					{}
+					+
+					*
+					?
+					[]
+					()
+					^
+					$
+					?:
+				
+				\d 代表一个数字
+				\D 代表非数字
+
+				\s 代表一个空格
+				\S 代表非空格
+
+				\w 代表数字 字母 _
+				\W 代表非数字 字母 _ 
+
+				\b 单词边界  一个\w左边或右边不存在一个\w就存在一个单词边界
+				\B 非单词边界
+
+				. 代表任意一个字符
+					不包含换行 \n
+
+				+ * ? {} () []
+				这些字符在正则中代表特殊的意义，如果要匹配字符串中这些字符，需要用转义符，去掉特殊的意义，变成普通的字符
+
+			*/
+
+			let str = 'miaov.ke+tang';
+
+			let re = /\.|\+/g;
+
+			console.log(str.replace(re,"*"));
+
+
+
+
+		</script>
+	</head>
+
+	<body>
+		<div id="a" class="abc-abc" a="$>">
+			<p>123</p>
+			<p>123</p>
+			<p>123</p>
+		</div>
+	</body>
+</html>

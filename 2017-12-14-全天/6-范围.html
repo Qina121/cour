@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+			/*
+				范围
+					[匹配的字符]
+
+				匹配到中[]中任何一个字符
+
+				匹配的字符是连续的：
+					开始 - 结束
+					[0-9]
+					[1-5]
+					[5-9]
+					[a-z]
+					[h-z]
+					[A-Z]
+
+				^ 尖括号放在[]中，代表排除这些字符
+
+				[15-80]  不是15-80 是1 5 6 7 8 0
+
+				() 提权，做一个整体
+			*/
+
+			let str = 'm1vm3vm5vm6vmavmKvmNvm[v';
+
+			// 规则：m开始，v结束，中间是任意字符,排除1|5|7
+
+			let re = /m[^157]v/g;
+
+			console.log( str.match(re) );
+
+			// 思考：只要数字，排除157
+			
+
+		</script>
+	</head>
+
+	<body>
+		
+	</body>
+</html>

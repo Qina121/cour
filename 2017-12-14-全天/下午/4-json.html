@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+			/*
+				JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式
+
+				XML
+
+				json就是一个字符串，具有对象的格式
+
+				http://json.org/
+			*/
+
+			let json = '{"miaov":"ketang","abc":1,"bl":true,"n":null,"obj":{"a":1}}';
+
+			// json字符串转成可用的对象 JSON.parse(json)
+
+			console.log(JSON.parse(json));
+
+			let users = {name:'leo',age:1,height: 190};
+
+			// 可用对象转成json字符串  JSON.stringify(obj)
+
+			alert(JSON.stringify(users));  // [object Object]
+
+			// {"name":"leo","age":1,"height":190}
+
+			//alert([1,2,3,4]); // 1,2,3,4
+
+
+		</script>
+	</head>
+
+	<body>
+		
+	</body>
+</html>

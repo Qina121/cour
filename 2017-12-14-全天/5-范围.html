@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+			/*
+				范围
+					[匹配的字符]
+
+				匹配到中[]中任何一个字符
+
+				匹配的字符是连续的：
+					开始 - 结束
+					[0-9]
+					[1-5]
+					[5-9]
+					[a-z]
+					[h-z]
+					[A-Z]
+
+				[15-80]  不是15-80 是1 5 6 7 8 0
+
+				() 提权，做一个整体
+			*/
+
+			let str = 'm1vm3vm5vm6vmavmKvmNvm[v';
+
+			// 规则：m开始，v结束，中间是数字1|5|7
+			let re = /m[157]v/g;
+			console.log(str.match(re));
+
+
+			// 规则：m开始，v结束，中间是数字1|2|3|4|5|6|7|8
+			let re2 = /m[1-8]v/g;
+
+			console.log(str.match(re2));
+
+			// 规则：m开始，v结束，中间是任意一个字母
+
+			//let re3 = /m[A-z]v/g;
+			let re3 = /m[a-zA-Z0-9]v/g;
+
+			console.log(str.match(re3));
+			
+
+		</script>
+	</head>
+
+	<body>
+		
+	</body>
+</html>

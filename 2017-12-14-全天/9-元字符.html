@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+			/*
+				元字符：
+					\d 代表一个数字
+					i
+					g
+					{}
+					+
+					*
+					?
+					[]
+					()
+					^
+					$
+					?:
+				
+				\d 代表一个数字
+				\D 代表非数字
+
+
+
+				两种模式：
+					1. 贪婪模式
+						尽可能多的匹配
+					2. 懒惰模式
+						尽可能少的匹配
+
+					正则默认是贪婪模式，如何开启懒惰模式
+						? 开启懒惰模式
+
+			*/
+
+			let str = 'm1vm2vm+vm)+?vm-vm,v';
+
+			// 规则：m开始，v结束，中非数字
+
+
+			let re = /m\D+?v/g;
+
+			console.log(str.match(re));
+
+		</script>
+	</head>
+
+	<body>
+		
+	</body>
+</html>

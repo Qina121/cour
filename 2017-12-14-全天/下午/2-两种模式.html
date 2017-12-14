@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+			/*
+				贪婪模式
+					尽可能多的匹配
+				懒惰模式
+					尽可能少的匹配
+
+				加上 ? 开启懒惰模式
+			*/
+		</script>
+	</head>
+
+	<body>
+		<textarea id="xiaoshuo"></textarea>
+		<button id="btn">转换为纯文本</button>
+		<p id="wenben"></p>
+		<script>
+			let re = /<.+?>/g;
+			btn.onclick = function (){
+				console.log(123);
+				let newValue = xiaoshuo.value.replace(re,"");
+				console.log(newValue);
+				wenben.innerHTML = 	newValue
+			}
+		</script>
+	</body>
+</html>

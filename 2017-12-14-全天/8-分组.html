@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+
+				/*
+					分组,子模式，子表达会：
+						()
+	
+					只要出现在正则中就是分组
+
+					不捕获分则信息：
+						?:
+						语法： (?:) 代表不捕获这一组信息
+
+
+					使用match，
+						规则是全局匹配，不会得到分组信息
+						不是全局匹配，会得到分组信息
+
+				*/
+			
+			let str = 'm1vm345vm444vmav';
+
+			// 规则：m开始，v结束，中间是1|30|5
+
+			let re = /m(?:1|30|5)v/g;
+
+			str.replace(re,function ($0,$1,$2){
+				console.log($0,$1,$2);	
+			})
+
+
+
+		</script>
+	</head>
+
+	<body>
+		
+	</body>
+</html>

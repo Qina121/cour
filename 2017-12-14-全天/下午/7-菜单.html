@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+
+			var content = {
+			    zj:[
+			        {
+			            title:'QQ',
+			            name:'qq',
+			            editTime:'2017-12-05',
+			            fileSize:0,
+			            child:[
+			                {
+			                    title:'QQ2222',
+			                    name:'qq2',
+			                    editTime:'2017-12-05',
+			                    fileSize:0,
+			                    child:[
+			                        {
+			                            title:'QQ3333',
+			                            name:'qq3',
+			                            editTime:'2017-12-05',
+			                            fileSize:0
+			                        },
+			                        {
+			                            title:'网络公司33',
+			                            name:'wlgs3',
+			                            editTime:'2017-12-05',
+			                            fileSize:0
+			                        }
+			                    ]
+			                },
+			                {
+			                    title:'网络公司22',
+			                    name:'wlgs2',
+			                    editTime:'2017-12-05',
+			                    fileSize:0
+			                },
+			                {
+			                    title:'网站制作任务222',
+			                    name:'wzzzrw2',
+			                    editTime:'2017-12-05',
+			                    fileSize:0
+			                }
+			            ]
+			        },
+			        {
+			            title:'网络公司',
+			            name:'wlgs',
+			            editTime:'2017-12-05',
+			            fileSize:0
+			        },
+			        {
+			            title:'网站制作任务',
+			            name:'wzzzrw',
+			            editTime:'2017-12-05',
+			            fileSize:0
+			        },
+			        {
+			            title:'我的腾讯文件',
+			            name:'wdtxwj',
+			            editTime:'2017-12-05',
+			            fileSize:0
+			        }
+			    ]
+			};
+
+			var data = content.zj;
+
+
+			let newData = [];
+			let lev = 0;
+			function dataControll(d,names){
+				d.forEach(function (item){
+					item.pname = names
+					newData.push(item)
+
+					if(item.child){
+						dataControll(item.child,item.name)
+						delete item.child
+					}
+				})
+			}
+
+			dataControll(data,'zj')
+
+			console.log(JSON.stringify(newData,null,2));
+
+
+		</script>
+	</head>
+
+	<body>
+		<div id="box">
+			
+			<!-- <ul>
+				<li>
+					<span>hello</span>
+					<ul>
+						<li>
+							<span>123</span>
+						</li>
+					</ul>
+				</li>
+			</ul> -->
+		</div>
+		<script>
+			// 生成第一层
+
+			// 给一个数组，生成ul和li的结构
+			function createTreeHtml(d){
+				let html = '';
+
+				if(d){
+					html += `<ul>`
+					d.forEach(function (item,index){
+						html += `<li>
+									<span data-name="${item.name}" data-mark="${index}">${item.title}</span>`
+						html += `</li>`	
+					})
+					html += `</ul>`;
+				}
+
+				
+
+				return html;	
+			}
+
+
+			
+
+			box.innerHTML = createTreeHtml(data);
+
+			box.onclick = function (ev){
+				let target = ev.target;
+				if(target.nodeName === 'SPAN'){
+					let names = target.getAttribute('data-name');
+					console.log(names);
+				}	
+			}
+
+		</script>
+	</body>
+</html>

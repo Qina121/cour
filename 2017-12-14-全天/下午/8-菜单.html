@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+
+			var content = [
+					  {
+					    "title": "QQ",
+					    "name": "qq",
+					    "editTime": "2017-12-05",
+					    "fileSize": 0,
+					    "pname": "zj"
+					  },
+					  {
+					    "title": "QQ2222",
+					    "name": "qq2",
+					    "editTime": "2017-12-05",
+					    "fileSize": 0,
+					    "pname": "qq"
+					  },
+					  {
+					    "title": "QQ3333",
+					    "name": "qq3",
+					    "editTime": "2017-12-05",
+					    "fileSize": 0,
+					    "pname": "qq2"
+					  },
+					  {
+					    "title": "网络公司33",
+					    "name": "wlgs3",
+					    "editTime": "2017-12-05",
+					    "fileSize": 0,
+					    "pname": "qq2"
+					  },
+					  {
+					    "title": "网络公司22",
+					    "name": "wlgs2",
+					    "editTime": "2017-12-05",
+					    "fileSize": 0,
+					    "pname": "qq"
+					  },
+					  {
+					    "title": "网站制作任务222",
+					    "name": "wzzzrw2",
+					    "editTime": "2017-12-05",
+					    "fileSize": 0,
+					    "pname": "qq"
+					  },
+					  {
+					    "title": "网络公司",
+					    "name": "wlgs",
+					    "editTime": "2017-12-05",
+					    "fileSize": 0,
+					    "pname": "zj"
+					  },
+					  {
+					    "title": "网站制作任务",
+					    "name": "wzzzrw",
+					    "editTime": "2017-12-05",
+					    "fileSize": 0,
+					    "pname": "zj"
+					  },
+					  {
+					    "title": "我的腾讯文件",
+					    "name": "wdtxwj",
+					    "editTime": "2017-12-05",
+					    "fileSize": 0,
+					    "pname": "zj"
+					  }
+					]
+
+
+		</script>
+	</head>
+
+	<body>
+		<div id="box">
+			
+			<!-- <ul>
+				<li>
+					<span>hello</span>
+					<ul>
+						<li>
+							<span>123</span>
+						</li>
+					</ul>
+				</li>
+			</ul> -->
+		</div>
+		<script>
+			// 生成第一层
+
+			function getChildsByName(data,name){
+				let arr = [];
+				data.forEach(function(item) {
+					if(item.pname === name)	{
+						arr.push(item)
+					}
+				})	
+
+				return arr;
+			}
+
+			// 给一个数组，生成ul和li的结构
+			function createTreeHtml(d,initData){
+				let html = '';
+				let arr = getChildsByName(d,initData)
+				if(arr){
+					html += `<ul>`
+					arr.forEach(function (item,index){
+						html += `<li>
+									<span data-name="${item.name}">${item.title}</span>`
+						html += `</li>`	
+					})
+					html += `</ul>`;
+				}
+
+				
+
+				return html;	
+			}
+
+			// 初始页面先拿第一级
+
+			let hash = window.location.hash;
+			let initData = 'zj';
+			if(hash){
+				initData = hash.slice(1)
+			}
+
+			console.log(initData);
+
+			let  n = 0;
+			n++
+			n++
+			n++;
+
+			console.log(n);
+			
+
+			box.innerHTML = createTreeHtml(content,initData);
+
+			box.onclick = function (ev){
+				let target = ev.target;
+				if(target.nodeName === 'SPAN'){
+					let names = target.getAttribute('data-name');
+					
+					console.log(getChildsByName(content,names));
+
+					box.innerHTML = createTreeHtml(content,names);
+
+					window.location.hash = names;
+				}	
+			}
+
+		</script>
+	</body>
+</html>

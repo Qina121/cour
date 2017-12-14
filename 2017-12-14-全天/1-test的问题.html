@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+			let str = 'mia1ovketa5ng';
+
+			let re = /\d/g;
+
+			console.log(re.lastIndex);
+
+			// 如果是全局匹配，那么每匹配一次，就会记录这一次的位置，下一次继续调用test，就会从记录的位置向后搜索
+
+			// lastIndex 记录的是开始搜索的位置，这个属性可读可写，如果改写的话，就从改写位置开始搜索
+
+			re.lastIndex = 0;
+			console.log(re.test(str));
+			console.log(re.lastIndex);
+			re.lastIndex = 0;
+			console.log(re.test(str));
+			console.log(re.lastIndex);
+			re.lastIndex = 0;
+			console.log(re.test(str));
+			console.log(re.lastIndex);
+
+
+		</script>
+	</head>
+
+	<body>
+		
+	</body>
+</html>

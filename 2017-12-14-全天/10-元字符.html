@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+			/*
+				元字符：
+					\d 代表一个数字
+					i
+					g
+					{}
+					+
+					*
+					?
+					[]
+					()
+					^
+					$
+					?:
+				
+				\d 代表一个数字
+				\D 代表非数字
+
+				\s 代表一个空格
+				\S 代表非空格
+
+				str.trim() 去除字符串前后空格
+					ie6不兼容
+
+				封装一个去除前后空格的方法？
+			*/
+
+			function trim(str){
+				let re = /^\s+|\s+$/g;
+				return str.replace(re,"");
+			}
+
+			let str = '   miaov    ketang   ';
+
+			console.log(trim(str));
+
+		</script>
+	</head>
+
+	<body>
+		
+	</body>
+</html>
