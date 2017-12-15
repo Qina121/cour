@@ -1,0 +1,38 @@
+泛（大）前端
+全栈
+
+javascript
+
+pc端web页面
+mb端web页面
+	web app (跑在手机的浏览器中)
+	微信
+	小程序
+	混合开发
+	原生app，react Native js
+
+pc/client 
+	代表 vscode、atom、cmd markdonw
+
+后端
+	node
+
+游戏
+	引擎-白鹭引擎
+
+数据可视化：
+	canvas svg
+	https://threejs.org/
+
+物联网
+
+
+100m	
+	153
+	132
+
+200m
+	1356
+	3344
+500m
+	178

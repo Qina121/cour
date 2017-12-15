@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+      #drag1 {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+       #drag2 {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left: 0;
+        top: 200px;;
+      }
+      #miaov {
+        width: 100px;
+        height: 100px;
+        background: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="miaov">
+      
+    </div>
+    <div id="drag1"></div>
+    <div id="drag2"></div>
+    <script>
+      function subscribeAddpublish(){
+        return {
+          phonebook: {}, 
+          on (square,fn) {
+            if(!this.phonebook[square]){
+              this.phonebook[square] = [];
+            }
+
+            this.phonebook[square].push(fn)
+          },
+          emit (square) {
+            let squares = this.phonebook[square];
+            if(squares){
+
+              for( var i = 0; i < squares.length; i++ ){
+                squares[i]()
+              }
+            }
+          }
+        }   
+      }
+      function dragObj(element){
+
+        // 当掉用一次这个dragObj函数，我会创建一个订阅发布系统
+        let o = subscribeAddpublish();
+
+        element.onmousedown = function (ev) {
+          let disX = ev.clientX - this.offsetLeft;
+          let disY = ev.clientY - this.offsetTop;
+
+          o.emit('custom-down')
+
+          document.onmousemove = function (ev) {
+            element.style.left = ev.clientX - disX + 'px';
+            element.style.top = ev.clientY - disY + 'px';
+            o.emit('custom-move')
+          }
+
+          document.onmouseup = function (ev) {
+            document.onmousemove = document.onmouseup = null;
+            o.emit('custom-up')
+          }
+        }
+
+        // 返回这个系统
+        return o;
+      }
+
+        let drag1 = document.getElementById('drag1')
+        let drag2 = document.getElementById('drag2')
+        let d1 = dragObj(drag1)
+
+        // 如果关系在move的时候做的事情，只需要订阅这个事件
+        d1.on('custom-move',function (){
+          miaov.style.width = miaov.clientWidth + 10 + 'px';
+        })
+
+
+       let d2 = dragObj(drag2)
+
+       d2.on('custom-move',function (){
+          console.log('2');  
+        })
+
+        
+    </script>
+  </body>
+</html>

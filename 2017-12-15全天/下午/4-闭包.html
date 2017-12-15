@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+    <style>
+      
+    </style>
+    <script>
+
+
+
+    </script>
+  </head>
+
+  <body>
+    <ul>
+      <li>123</li>
+      <li>123</li>
+      <li>123</li>
+    </ul>
+    <script>
+
+      // 闭包：内层函数使用外层函数的变量，形成闭包
+
+      /*
+        保护函数中变量
+        把变量常驻内存
+      */
+
+      function fn(){
+          let n = 0;
+          function fn2(){
+              n++;
+              console.log(n);
+          }
+          return fn2;
+      }
+
+      let f = fn()
+      f()
+      f()
+      let f2 = fn();
+      f2();
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+      #drag1 {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+       #drag2 {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left: 0;
+        top: 200px;;
+      }
+      #miaov {
+        width: 100px;
+        height: 100px;
+        background: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="miaov">
+      
+    </div>
+    <div id="drag1"></div>
+    <div id="drag2"></div>
+    <script>
+
+      // 订阅发布模式
+      /*
+        订阅者
+        发布者
+        事件
+      */
+
+      // 三个人 小王 小李 小红
+      // 售楼中心，问有没有房子
+
+      // 三个人把电话号码留给前台
+
+      function subscribeAddpublish(){
+        return {
+          phonebook: {}, 
+          on (square,fn) {
+            if(!this.phonebook[square]){
+              this.phonebook[square] = [];
+            }
+
+            this.phonebook[square].push(fn)
+          },
+          emit (square) {
+            let squares = this.phonebook[square];
+            if(squares){
+
+              for( var i = 0; i < squares.length; i++ ){
+                squares[i]()
+              }
+            }
+          }
+        }   
+      }
+
+      // 只要调用这个方法，就有这个订阅发布的模式
+      let o = subscribeAddpublish();
+
+      o.on('100M',function (){
+        console.log("我要做的事情");  
+      })
+      o.on('100M',function (){
+        console.log("我要做的事情");  
+      })
+      o.on('100M',function (){
+        console.log("我要做的事情");  
+      })
+      o.on('100M',function (){
+        console.log("我要做的事情");  
+      })
+
+
+      let o1 = subscribeAddpublish();
+
+      o1.on('100XXL',function (){
+          console.log(1111);
+      })
+
+      o1.on('500XXL',function (){
+          console.log(4444444);
+      })
+
+      document.onclick = function (){
+        o1.emit('500XXL')  
+      }
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+    <style>
+      
+    </style>
+    <script>
+      // 多个运算符在一起的时候，先运算后运算 优先级
+      // 结合性
+
+      /*
+          + - *
+
+          && 左边转换为true，返回右边的值
+             左边转换为false，返回左边的值
+
+          || 左边转换为true，返回左边的值
+            左边转换为false，返回右边的值
+
+          && 优先级要高于||
+
+            = 运算之后会返回右边的值
+      */
+
+      let a = 0 || 1;
+
+      console.log(a);
+
+     // console.log( b = 10 );
+
+      let b =  10+10 || 1+40 && 0+30;
+
+      console.log(b);
+      let o = {
+        a: {
+          b:4
+        }
+      }
+
+      console.log(o.a.b);
+    </script>
+  </head>
+
+  <body>
+    
+  </body>
+</html>

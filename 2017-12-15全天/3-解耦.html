@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+      #drag1 {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+       #drag2 {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left: 0;
+        top: 200px;;
+      }
+      #miaov {
+        width: 100px;
+        height: 100px;
+        background: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="miaov">
+      
+    </div>
+    <div id="drag1"></div>
+    <div id="drag2"></div>
+    <script>
+      /*
+        解耦
+          通俗来讲，解开耦合度
+      */
+
+     // let o = {a:1};
+
+     /*document.addEventListener('document-click',function (){
+         o.a = o.a+10;
+     })*/
+
+
+      // 解耦：点击的时候不需要知道o的存在
+      /*document.onclick  = function (){
+        // o.a = o.a+10;
+        // 发布一个事件
+        document.publish('document-click')
+      }*/
+
+    </script>
+  </body>
+</html>

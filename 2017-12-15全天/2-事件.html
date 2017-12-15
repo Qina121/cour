@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+      #drag1 {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+       #drag2 {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left: 0;
+        top: 200px;;
+      }
+      #miaov {
+        width: 100px;
+        height: 100px;
+        background: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="miaov">
+      
+    </div>
+    <div id="drag1"></div>
+    <div id="drag2"></div>
+    <script>
+      drag1.onclick = function () {
+        miaov.style.width = miaov.clientWidth + 100 + 'px';
+      }
+    </script>
+  </body>
+</html>
