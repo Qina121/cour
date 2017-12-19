@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+
+    /*
+    * 原型继承：
+    *
+    *   A.prototype = B.prototype;
+     *  A.prototype = new B();
+     *
+     *  以上两种方式的区别： 是否要继承非原型上的属性和方法
+    *
+    * */
+
+    //动物类的构造函数 animal.class.js
+    function Animal(){
+        this.class = '动物';
+        this.arr1 = [1,2,3];
+    }
+
+    Animal.prototype.run = function(){
+        console.log('跑');
+    };
+
+    Animal.prototype.arr = [1,2,3,4];
+
+    //猫类  犬类 。。。。。
+    function Cat(){
+
+        this.color = 'black';
+        this.name = '猫';
+    }
+
+//    Cat.prototype = new Animal();//把Animal的执行结果赋值给Cat的原型
+    Cat.prototype = Animal.prototype;
+    Cat.prototype.constructor = Cat;
+
+
+    Cat.prototype.upTree = function(){};
+    Cat.prototype.say = function(){
+        console.log('我是一只'+this.name+',是'+this.class);
+    };
+
+
+    var cat_1 = new Cat();//实例化
+    cat_1.arr.push(33);
+//    cat_1.arr1.push(33);
+
+    console.log(cat_1);
+    console.log(cat_1.arr);
+//    console.log(cat_1.arr1);
+    console.log(cat_1.constructor);
+    console.log(cat_1 instanceof Cat);//true
+    console.log(cat_1 instanceof Animal);//true
+
+    var a = new Animal();
+
+    console.log(a.arr);
+    console.log(a.arr1);
+
+
+
+
+</script>
+</body>
+</html>

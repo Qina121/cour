@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    /*
+    * object.hasOwnProperty(方法或者属性名称（string）);
+    *
+    *  检测对象自身是否存在某个方法或者属性
+    *
+    *  返回值：boolean 布尔值
+    *
+    *  无法检测继承的方法或者属性
+    *
+    *
+    *
+    * */
+
+    var arr = new Array(1,2,3,4);
+
+    var json = {
+        age:0,
+        sex:1,
+        say:function(){}
+    };
+
+    console.log(arr);
+
+    console.log(arr.hasOwnProperty('length'));//true
+    console.log(arr.hasOwnProperty('0'));//true
+    console.log(json.hasOwnProperty('age'));//true
+    console.log(json.hasOwnProperty('say'));//true
+    console.log(arr.hasOwnProperty('age'));//false
+    console.log(arr.hasOwnProperty('concat'));//false
+
+
+
+
+
+
+</script>
+</body>
+</html>

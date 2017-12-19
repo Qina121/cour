@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+
+
+    var json = {
+        a:1,
+        b:[2,2,3,{
+            a:0,
+            c:11
+        }]
+    };
+
+    var data1 = copy(json);
+    data1.a = 2;
+    data1.b[0] = 15;
+
+    console.log(data1);
+    console.log(json);
+
+
+    //深拷贝
+    var data2 = deepCopy(json);
+
+    data2.a = 33;
+    data2.b[0] = 444;
+    data2.b[data2.b.length-1].a = 444;
+
+    console.log(data2);
+    console.log(json);
+
+
+
+    function copy(obj){
+        var data = {};//假设默认创建一个对象
+        if(typeof obj=='array'){
+            data = [];
+        }
+        for(var key in obj){
+            data[key] = obj[key];
+        }
+
+        return data;
+    }
+
+
+    function deepCopy(obj){
+
+        var data = {};//假设默认创建一个对象
+        if(obj instanceof Array){
+            data = [];
+        }
+
+        for(var key in obj){
+            if(typeof obj[key]!='object'){
+                data[key] = obj[key];
+            }else{
+                data[key] = deepCopy(obj[key])
+            }
+        }
+
+        return data;
+    }
+
+
+
+</script>
+</body>
+</html>

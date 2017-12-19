@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    /*
+    * 类式继承 没有用到原型 脱离了原型链  --- 不推荐使用
+    *
+    * */
+
+    //动物类的构造函数 animal.class.js
+    function Animal(){
+        this.class = '动物';
+    }
+
+    Animal.prototype.run = function(){
+        console.log('跑');
+    };
+
+    //猫类  犬类 。。。。。
+    function Cat(){
+        Animal.call(this);//通过call方法改变this的指向达到绑定数据的目的  达到了继承目的 失去了继承的形式
+        this.color = 'black';
+        this.name = '猫';
+    }
+
+    Cat.prototype.upTree = function(){};
+    Cat.prototype.say = function(){
+        console.log('我是一只'+this.name+',是'+this.class);
+    };
+
+
+    var cat_1 = new Cat();
+
+//    cat_1.say();
+
+    console.log(cat_1);
+    console.log(cat_1.class);
+    console.log(cat_1.constructor);
+    console.log(cat_1 instanceof Cat);//true
+    console.log(cat_1 instanceof Animal);//false
+
+</script>
+</body>
+</html>

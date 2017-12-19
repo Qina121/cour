@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+
+    function fn1(){
+        var a = 0;
+
+        a++;
+        console.log(a);
+
+        var fn2 = function(){};
+
+        return fn2;
+    }
+
+    var a = fn1(); //1
+
+    //fn1 被销毁
+
+
+
+    fn1();//1
+
+    //fn1 被销毁
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    /*
+    * instanceof 运算符
+    *
+    * 检测实例对象是否继承某个构造函数
+    *
+    * 实例对象 instanceof 构造函数名称
+    *
+    * 包括被继承的祖父级
+    *
+    *
+    * */
+//    Array.index = 1;
+    Array.prototype.index = 1;
+    var arr = new Array();
+
+    console.log(arr.index);
+    Object.prototype.say = function(){
+        console.log(11111);
+    };
+    Number.prototype.send = function(){
+        console.log(2222);
+    };
+    console.log(arr instanceof Array);
+    console.log(arr instanceof Object);
+    console.log(arr instanceof Number);
+
+    if(arr instanceof Number){
+        arr.send();
+    }
+
+    console.log(Object.prototype);
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
