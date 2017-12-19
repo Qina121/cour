@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input.active{
+            background-color: yellow;
+        }
+        li{
+            display: none;
+        }
+        li.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div id="div1">
+    <input class="active" type="button" value="按钮1"><input type="button" value="按钮2"><input type="button" value="按钮3">
+    <ul>
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</div>
+
+<div id="div2">
+    <input class="active" type="button" value="按钮1"><input type="button" value="按钮2"><input type="button" value="按钮3">
+    <ul>
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</div>
+
+
+
+<div id="btns">
+    <input type="button" value="停止第一个的动画">
+    <input type="button" value="开始第一个的动画">
+    <input type="button" value="停止第二个的动画">
+    <input type="button" value="开始第二个的动画">
+</div>
+
+<script>
+
+    /*
+    * 1. 点击对应的按钮 显示 对应的内容
+    * 2. 自动播放
+    *
+    * 3. 单独控制动画的停止和执行
+    *
+    *
+    *
+    *   谁？  什么时候？  做什么事情？
+    *
+    *   要做什么？  属于什么类别？  这个类需要哪些属性和方法？
+    *
+    * */
+    var div1 = document.querySelector('#div1');
+    var div2 = document.querySelector('#div2');
+
+
+
+    //定义一个选项卡类
+    function Tab(obj){
+
+        this.obj = obj;
+        this.btns = obj.querySelectorAll('input');
+        this.lis = obj.querySelectorAll('li');
+
+        this.n = 0;//当前位置
+        this.timer = 0;//定时器id
+        this.speed = 1000;
+
+
+        this.init();//执行初始化
+
+    }
+
+    //初始化
+    Tab.prototype.init = function(){
+
+        this.autoPlay();
+
+        //鼠标移入移出控制动画的执行
+        this.obj.onmouseover = ()=>{
+            this.stop();
+        };
+        this.obj.onmouseout = ()=>{
+            this.autoPlay();
+        };
+
+        for(let i=0;i<this.btns.length;i++){
+            this.btns[i].onclick = ()=>{
+                this.n = i;
+                this.show();
+            };
+        }
+
+    };
+
+    Tab.prototype.show = function(){
+
+        var btns = this.btns;
+        var lis = this.lis;
+        var n = this.n;
+
+        //大清除
+        for(var i=0;i<btns.length;i++){
+            btns[i].className = '';
+            lis[i].className = '';
+        }
+
+        //显示当前的
+        btns[n].className = 'active';
+        lis[n].className = 'active';
+    };
+
+    Tab.prototype.autoPlay = function(){
+
+        var btns = this.btns;
+
+        this.timer = setInterval(()=>{
+            this.n++;
+            if(this.n>btns.length-1){
+                this.n = 0;
+            }
+            this.show();
+        },this.speed)
+    };
+
+    Tab.prototype.stop = function(){
+        console.log(this);
+        clearInterval(this.timer);
+    };
+
+
+    //调用对象  必须在构造函数定义完之后才能生成实例对象。
+    var div_1 = new Tab(div1);
+    console.log(div_1);
+
+    var div_2 = new Tab(div2);
+
+
+    //通过第三方按钮控制执行的状态
+    var btns  = document.querySelectorAll('#btns input');
+
+    btns[0].onclick = function(){
+        div_1.stop();
+    };
+    btns[1].onclick = function(){
+        div_1.stop();
+        div_1.autoPlay();
+    };
+
+    btns[2].onclick = function(){
+        div_2.stop();
+    };
+    btns[3].onclick = function(){
+        div_2.stop();
+        div_2.autoPlay();
+    };
+
+
+
+
+</script>
+</body>
+</html>

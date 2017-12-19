@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+
+
+    /*
+    * 对象原型： prototype
+    *
+    * 原型链： __proto__
+    *
+    *   有点： 提高面向对象开发方式的性能
+    *
+    *
+    * 为什么要把方法写在原型上  而不直接写在函数内部？
+    *   1.如果在类的内部定义方法 那么每次 new 关键字都会创建一个新的函数出来， 导致内存压力增大  甚至内存溢出报错
+    *   2.每个对象只有一个原型，通过new关键字生成的实例对象，都是继承父级（类）原型
+    *
+    *
+    *
+    * */
+    function Personal(age){
+
+        this.age = age||18;
+        this.sex = 0;
+        this.color = 'yellow';
+
+//        this.run = function(){
+//            console.log('跑起来');
+//        };
+
+//        this.say = function(message){
+//            console.log(message);
+//        };
+    }
+
+    Personal.prototype.run = function(){
+        console.log('跑起来');
+    };
+    Personal.prototype.say = function(message){
+        console.log(message);
+    };
+
+
+    //生产一个小人
+    var personal_1 = new Personal(20);
+
+    console.log(personal_1);
+
+    var personal_2 = new Personal(20);
+
+
+
+</script>
+</body>
+</html>

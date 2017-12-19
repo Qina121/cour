@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+
+    /*
+    * 创建一个类（构造函数）
+    *
+    * 产生对象的方式：  new 类名[()]
+    *       -返回包含这个类别默认的所有属性和方法的一个对象 {}
+    *  注意：  类名后面 如果不需要传参 那么()可以省略
+    *
+    * */
+    function Personal(age){
+
+        this.age = age||18;
+        this.sex = 0;
+        this.color = 'yellow';
+
+        this.run = function(){
+            console.log('跑起来');
+        };
+
+        this.say = function(message){
+            console.log(message);
+        };
+    }
+
+    //生产一个小人
+    var personal_1 = new Personal(20);
+
+    console.log(personal_1);
+
+
+
+
+
+</script>
+</body>
+</html>
